@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="home.html" method="get">
+    <h1>Welcome to page</h1>    
+    <br>
+    <div>
+        <label for="Email">Email: </label>
+        <input  type="text" name="Email" placeholder="Email"/>
+    </div>
+    <br>
+    <div>
+        <label for="password">Password: </label>
+        <input type="password" id="password" name="password" placeholder="password" />
+    </div>
+    <br>
+    <div>
+        <button> Login </button>
+    </div>
+    <br>
+   <div>
+    <!--write a code with sign up for new user-->
+    <a href="signup.html">
+    <button type="button">Sign Up for New User</button>
+    </a>
+
+    </div>
+    <!-- write a code with login data if any wrong data field to not login-->
+    <div id="error-message" style="color: red;"></div>
+ 
+    <br>
+       <a href="forgot_password.html">
+         <button type="button">Forgot Password?</button>
+         </a>
+          <script src="script.js"></script>
+    </form>
+   
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!-- write a code of new user to create a login id-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Create a New Account</h1>
+    <form action="index.html" method="get">
+        <div>
+            <label for="new_email">Email:</label>
+            <input type="text" id="new_email" name="new_email" placeholder="Enter your email" required>
+        </div>
+        <br>
+        <div>
+            <label for="new_password">Password:</label>
+            <input type="password" id="new_password" name="new_password" placeholder="Create a password" required>
+        </div>
+        <br>
+        <div>
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-type your password" required>
+        </div>
+        <br>
+        <div>
+            <button type="submit">Sign Up</button>
+        </div>
+        <br>
+        <!-- add a button to go back to login page -->
+        <div>
+            <a href="index.html">
+
+                <button type="button">Back to Login</button>
+            </a>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>

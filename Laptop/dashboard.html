@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard with Charts</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Dashboard</h1>
+
+  <table id="dataTable" border="1">
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div>
+    <canvas id="barChart" width="400" height="300"></canvas>
+    <canvas id="pieChart" width="400" height="300"></canvas>
+  </div>
+
+  <a href="home.html">← Back to Form</a>
+
+  <script>
+    // Read data from URL
+    const params = new URLSearchParams(window.location.search);
+    const tbody = document.querySelector("#dataTable tbody");
+
+    const labels = [];
+    const numbers = [];
+
+    // Populate table and collect numeric data
+    params.forEach((value, key) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `<td>${key}</td><td>${value}</td>`;
+      tbody.appendChild(row);
+
+      if (!isNaN(value) && value.trim() !== "") {
+        labels.push(key);
+        numbers.push(Number(value));
+      }
+    });
+
+    // Bar chart
+    const barCtx = document.getElementById("barChart").getContext("2d");
+    new Chart(barCtx, {
+      type: "bar",
+      data: {
+        labels: labels,
+        datasets: [{
+          label: "Numeric Data (from form)",
+          data: numbers,
+          backgroundColor: "rgba(54, 162, 235, 0.6)",
+          borderColor: "rgba(54, 162, 235, 1)",
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+
+    // Pie chart
+    const pieCtx = document.getElementById("pieChart").getContext("2d");
+    new Chart(pieCtx, {
+      type: "pie",
+      data: {
+        labels: labels,
+        datasets: [{
+          data: numbers,
+          backgroundColor: [
+            "rgba(255, 99, 132, 0.6)",
+            "rgba(54, 162, 235, 0.6)",
+            "rgba(255, 206, 86, 0.6)",
+            "rgba(75, 192, 192, 0.6)",
+            "rgba(153, 102, 255, 0.6)",
+            "rgba(255, 159, 64, 0.6)"
+          ],
+          borderColor: "#fff",
+          borderWidth: 2
+        }]
+      },
+      options: { responsive: true }
+    });
+  </script>
+  
+</body>
+</html>
